@@ -1,0 +1,62 @@
+apply plugin: 'com.android.library'
+
+dependencies {
+    api project(':AndroidAsync:AndroidAsync')
+    api 'com.google.code.gson:gson:2.8.2'
+
+    // Use play services if the linking app is using it. When play services isn't available
+    // ConscryptMiddleware will throw ClassNotFoundErrors upon attempting to load it at runtime.
+    // Conscrypt will fail to load, and the system SSL stack will be used.
+    // "compileOnly" means the library is compiled but not required at runtime.
+    compileOnly 'com.google.android.gms:play-services-base:16.1.0'
+
+    compileOnly 'com.android.support:support-v4:28.0.0'
+
+    // for when i wanna test this against gms conscrypt
+    androidTestImplementation 'com.google.android.gms:play-services-base:16.1.0'
+
+    // mockito nom nom oh god im drunk
+    androidTestImplementation "org.mockito:mockito-core:1.+"
+    androidTestImplementation "com.google.dexmaker:dexmaker:1.2"
+    androidTestImplementation "com.google.dexmaker:dexmaker-mockito:1.2"
+}
+
+android {
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+
+            java {
+                srcDir 'src/'
+            }
+        }
+        androidTest.java.srcDirs=['test/src/']
+        androidTest.res.srcDirs=['test/res/']
+        androidTest.assets.srcDirs=['test/assets/']
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    defaultConfig {
+        targetSdkVersion 28
+        minSdkVersion 14
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+    compileSdkVersion project.hasProperty('global_compileSdkVersion') ? global_compileSdkVersion : 25
+    buildToolsVersion project.hasProperty('global_buildToolsVersion') ? global_buildToolsVersion : '25.0.2'
+}
+
+// upload to maven task
+if (false && System.getenv().I_AM_KOUSH == 'true') {
+    apply from: 'https://raw.githubusercontent.com/koush/mvn-repo/master/maven.gradle'
+
+    apply plugin: 'maven'
+    apply plugin: 'signing'
+}

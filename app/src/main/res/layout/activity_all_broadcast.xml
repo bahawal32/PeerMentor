@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AllBroadcast">
+
+    <LinearLayout
+        android:id="@+id/superlayout"
+        android:layout_width="395dp"
+        android:layout_height="579dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        android:paddingTop="70dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/AddRequest"
+            android:layout_width="376dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="0dp"
+            android:text="Button" />
+
+        <ScrollView
+            android:id="@+id/scrollparent"
+            android:layout_width="match_parent"
+            android:layout_height="598dp">
+
+
+            <LinearLayout
+                android:id="@+id/UsersBroadcasts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:clipChildren="true"
+
+                android:dividerPadding="10dp"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="20dp">
+
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:background="@drawable/tutor"
+                    android:paddingBottom="30dp"
+                    android:text="TextView"
+                    android:textSize="20dp"
+
+                    />
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
