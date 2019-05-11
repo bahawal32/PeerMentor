@@ -12,7 +12,7 @@ Context cnt;
     public dymanicViews(Context cnt) {
         this.cnt = cnt;
     }
-    public TextView descriptionTextView(Context context,String text,String type ){
+    public TextView descriptionTextView(Context context,String text,int type ){
         final ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         final TextView textView = new TextView(context);
@@ -24,17 +24,18 @@ Context cnt;
         textView.setMaxEms(8);
         switch (type)
         {
-            case "Tutor":
+            case 1:
                 textView.setBackgroundResource(R.drawable.tutor);
+
                 break;
-            case "carpool":
+            case 2:
                 textView.setBackgroundResource(R.drawable.carpooling);
                 break;
-            case "stationary":
+            case 3:
                 textView.setBackgroundResource(R.drawable.stationary);
                 break;
                 default:
-                    textView.setBackgroundResource(R.drawable.logo);
+                    textView.setBackgroundResource(R.drawable.tutor);
         }
         return textView;
     }

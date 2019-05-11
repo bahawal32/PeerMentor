@@ -17,12 +17,13 @@ public class AllBroadcast extends AppCompatActivity {
     dymanicViews dmy;
     Context cxt;
     int i=0;
-    String type;
+    int type=0;
     RadioGroup typeofbroadcast;
     RadioButton selected;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_all_broadcast);
         myL = findViewById(R.id.UsersBroadcasts);
         AddRequest = findViewById(R.id.AddRequest);
@@ -34,20 +35,22 @@ public class AllBroadcast extends AppCompatActivity {
                 typeofbroadcast.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(RadioGroup group, int checkedId) {
-                        myL.addView(dmy.descriptionTextView(getApplicationContext()," "+(i++),type));
+                      type = group.getCheckedRadioButtonId();
+                      if(type == (R.id.Tutor))
+                      {type=1;}
+                        if(type == (R.id.carpool))
+                        {type=2;}
+                        if(type == (R.id.Stationary))
+                        {type=3;}
+
                     }
                 });
+                myL.addView(dmy.descriptionTextView(getApplicationContext()," "+(i++),type));
 
             }
         });
 
     }
-    void CheckButtton(View view)
-    {
-        int radId = typeofbroadcast.getCheckedRadioButtonId();
-        selected = findViewById(radId);
-        type = selected.getText().toString();
-        Toast.makeText(this,type+" was selected",Toast.LENGTH_SHORT).show();
 
-    }
+
 }
