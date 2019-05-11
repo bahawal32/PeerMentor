@@ -9,6 +9,7 @@ import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class AllBroadcast extends AppCompatActivity {
@@ -18,6 +19,7 @@ public class AllBroadcast extends AppCompatActivity {
     Context cxt;
     int i=0;
     int type=0;
+    TextView name ;
     RadioGroup typeofbroadcast;
     RadioButton selected;
     @Override
@@ -26,6 +28,8 @@ public class AllBroadcast extends AppCompatActivity {
 
         setContentView(R.layout.activity_all_broadcast);
         myL = findViewById(R.id.UsersBroadcasts);
+        name  = findViewById(R.id.UserName);
+        name.setText(getIntent().getStringExtra("username"));
         AddRequest = findViewById(R.id.AddRequest);
         AddRequest.setOnClickListener(new View.OnClickListener() {
             @Override

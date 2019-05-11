@@ -17,8 +17,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button send = findViewById(R.id.send);
-         final EditText messsage = (EditText) findViewById(R.id.msg);
-         final TextView msgBox = (TextView) findViewById(R.id.messageBox);
+         final EditText messsage =  findViewById(R.id.msg);
+         final TextView msgBox =  findViewById(R.id.messageBox);
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

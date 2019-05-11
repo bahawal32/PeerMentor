@@ -40,6 +40,7 @@ public class home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(home.this, signUP.class);
+                intent.putExtra("username",loginusername.getText().toString());
                 startActivity(intent);
             }
         });
