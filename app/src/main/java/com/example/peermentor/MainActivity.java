@@ -9,6 +9,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity  {
     public  EditText messagetxt ;
     public  Button send ;
     public String Nickname;
+    public  Button logout;
+    public  TextView t;
     @Override
     protected
     void onCreate(Bundle savedInstanceState) {
@@ -47,7 +50,10 @@ public class MainActivity extends AppCompatActivity  {
         Nickname=i.getStringExtra("username") ;
         messagetxt =  findViewById(R.id.message) ;
         send = findViewById(R.id.send);
+        logout = findViewById(R.id.logout);
         MessageList = new ArrayList<>();
+        t = findViewById(R.id.ttt);
+        t.setMovementMethod(new ScrollingMovementMethod());
         myRecylerView = findViewById(R.id.messagelist);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         myRecylerView.setLayoutManager(mLayoutManager);
@@ -96,9 +102,10 @@ public class MainActivity extends AppCompatActivity  {
                     public void run() {
                         JSONObject data = (JSONObject) args[0];
                         try {
-                            TextView t = findViewById(R.id.ttt);
-                            String fckoff = data.getString("msg");
-                            t.append(fckoff+'\n');
+                            t = findViewById(R.id.ttt);
+                            String msg = data.getString("msg");
+                            msg = msg.substring(0,msg.length()-9);
+                            t.append(msg+'\n');
                             String nickname = data.getString("user");
                             String message = data.getString("msg");
                             Message m = new Message(nickname,message);
@@ -128,6 +135,15 @@ public class MainActivity extends AppCompatActivity  {
                 });
             }
         });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, home.class);
+                Toast.makeText(MainActivity.this, "GoodBye!", Toast.LENGTH_SHORT).show();
+                startActivity(intent);
+            }
+        });
     }
+
 }
 
