@@ -31,7 +31,10 @@ public class home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //loginUser(loginusername.getText().toString(),loginpassword.getText().toString());
-                Intent intent = new Intent(home.this, AllBroadcast.class);
+                Intent intent = new Intent(home.this, MainActivity.class);
+                String uname  = loginusername.getText().toString();
+                intent.putExtra("username",uname);
+                Toast.makeText(home.this,"Welcome, "+uname,Toast.LENGTH_SHORT).show();
                 startActivity(intent);
 
             }
@@ -40,7 +43,7 @@ public class home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(home.this, signUP.class);
-                intent.putExtra("username",loginusername.getText().toString());
+
                 startActivity(intent);
             }
         });

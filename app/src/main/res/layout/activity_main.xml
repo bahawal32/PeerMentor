@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/colorPrimaryDark"
     android:isScrollContainer="false"
     android:scrollbars="vertical"
     tools:context=".MainActivity">
@@ -12,49 +13,26 @@
         android:id="@+id/send"
         android:layout_width="75dp"
         android:layout_height="59dp"
+        android:layout_marginStart="9dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:text="Send"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/messageBox"
-        android:layout_width="354dp"
-        android:layout_height="431dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
-        android:fadeScrollbars="false"
-        android:gravity="bottom"
-        android:hint="Chat With Your Mentor"
-        android:isScrollContainer="true"
-        android:keepScreenOn="true"
-        android:nestedScrollingEnabled="true"
-        android:overScrollMode="always"
-        android:paddingLeft="20dp"
-        android:scrollbars="vertical"
-        android:scrollHorizontally="false"
-        android:textIsSelectable="true"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/msg"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/message" />
 
     <EditText
-        android:id="@+id/msg"
-        android:layout_width="295dp"
+        android:id="@+id/message"
+        android:layout_width="268dp"
         android:layout_height="66dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="9dp"
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="  Enter text here..."
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintEnd_toStartOf="@+id/send"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
@@ -66,5 +44,36 @@
         android:text="LogOut"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/ttt"
+        android:layout_width="321dp"
+        android:layout_height="382dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/chatbg"
+        android:gravity="bottom"
+        android:hint="chat here"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/message"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.219" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/messagelist"
+        android:layout_width="317dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/message"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.358"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
