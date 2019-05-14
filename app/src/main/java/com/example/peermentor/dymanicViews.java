@@ -10,12 +10,12 @@ import android.widget.TextView;
 
 public class dymanicViews  extends AllBroadcast{
 Context cnt;
-    Intent chat;
+
     public dymanicViews(Context cnt) {
         this.cnt = cnt;
     }
-    public TextView descriptionTextView(Context context, String text, int type ,   Intent i){
-        chat = i;
+    public TextView descriptionTextView(Context context, String text, int type ){
+
         final ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT);
         final TextView textView = new TextView(context);
@@ -29,8 +29,9 @@ Context cnt;
             }
         });
         textView.setTextColor(Color.rgb(0,0,0));
-        textView.setText("Dynamically added text view " + text);
+        textView.setText(text);
         textView.setMaxEms(8);
+
         switch (type)
         {
             case 1:

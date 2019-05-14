@@ -59,13 +59,14 @@ public class MainActivity extends AppCompatActivity  {
         myRecylerView.setLayoutManager(mLayoutManager);
         myRecylerView.setItemAnimator(new DefaultItemAnimator());
         try {
-            socket = IO.socket("http://10.20.216.89:3000");
+            socket = IO.socket("http://192.168.1.105:3000");
             socket.connect();
             socket.emit("join",Nickname);
         } catch (URISyntaxException e) {
             e.printStackTrace();
 
         }
+        socket.emit("send message",i.getStringExtra("String"));
         socket.on("userjoinedthechat", new Emitter.Listener() {
             @Override
             public
@@ -104,7 +105,7 @@ public class MainActivity extends AppCompatActivity  {
                         try {
                             t = findViewById(R.id.ttt);
                             String msg = data.getString("msg");
-                            msg = msg.substring(0,msg.length()-9);
+                            //msg = msg.substring(0,msg.length()-9);
                             t.append(msg+'\n');
                             String nickname = data.getString("user");
                             String message = data.getString("msg");

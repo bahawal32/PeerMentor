@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/allbroadcast"
     tools:context=".AllBroadcast">
 
     <LinearLayout
@@ -25,6 +26,7 @@
             android:id="@+id/UserName"
             android:layout_width="365dp"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/coming_soon"
             android:text="TextView"
             android:textAlignment="center" />
 
@@ -32,7 +34,8 @@
             android:id="@+id/AddRequest"
             android:layout_width="370dp"
             android:layout_height="wrap_content"
-            android:paddingLeft="50dp"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/coming_soon"
             android:text="Button" />
 
         <RadioGroup
@@ -46,6 +49,7 @@
                 android:id="@+id/Tutor"
                 android:layout_width="107dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/coming_soon"
                 android:text="Tutor"
                 android:textAlignment="viewStart" />
 
@@ -54,35 +58,44 @@
                 android:layout_width="118dp"
                 android:layout_height="wrap_content"
 
+                android:fontFamily="@font/coming_soon"
                 android:text="stationary" />
 
             <RadioButton
                 android:id="@+id/carpool"
                 android:layout_width="109dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/coming_soon"
                 android:text="carpool" />
 
         </RadioGroup>
 
+        <EditText
+            android:id="@+id/broadcast_text"
+            android:layout_width="366dp"
+            android:layout_height="78dp"
+            android:layout_marginLeft="30dp"
+            android:fontFamily="@font/coming_soon"
+            android:hint="Type ypur Request here :) and get help"
+            android:textColorHint="@color/colorAccent" />
+
         <ScrollView
             android:id="@+id/scrollparent"
             android:layout_width="369dp"
-            android:layout_height="432dp">
+            android:layout_height="432dp"
+            android:layout_marginLeft="20dp"
+            android:padding="20dp">
 
 
             <LinearLayout
                 android:id="@+id/UsersBroadcasts"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="10dp"
                 android:clipChildren="true"
-
-                android:dividerPadding="10dp"
                 android:orientation="vertical"
-                android:paddingLeft="30dp"
-                android:paddingTop="20dp"
-                android:paddingRight="20dp"
-                android:paddingBottom="20dp" />
+                android:padding="20dp"
+                android:paddingBottom="2dp" />
 
         </ScrollView>
 

@@ -7,11 +7,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 public class AllBroadcast extends AppCompatActivity {
     private LinearLayout myL;
@@ -21,6 +24,7 @@ public class AllBroadcast extends AppCompatActivity {
     int i=0;
     int type=0;
     TextView name ;
+    EditText broadcast_text;
     RadioGroup typeofbroadcast;
     RadioButton selected;
     Intent chat;
@@ -31,6 +35,7 @@ public class AllBroadcast extends AppCompatActivity {
         setContentView(R.layout.activity_all_broadcast);
         myL = findViewById(R.id.UsersBroadcasts);
         name  = findViewById(R.id.UserName);
+        broadcast_text = findViewById(R.id.broadcast_text);
         name.setText(getIntent().getStringExtra("username"));
 
         AddRequest = findViewById(R.id.AddRequest);
@@ -52,12 +57,25 @@ public class AllBroadcast extends AppCompatActivity {
 
                     }
                 });
-                myL.addView(dmy.descriptionTextView(getApplicationContext()," "+(i++),type,getIntent()));
+                String broadcast_msg=broadcast_text.getText().toString().trim();
+                broadcast_text.setText("");
+                final TextView tv =dmy.descriptionTextView(getApplicationContext(),"hello, "+name.getText().toString().trim()+" needs help \n"+broadcast_msg,type);
+                tv.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i =  new Intent(AllBroadcast.this, MainActivity.class);
+                        i.putExtra("String",tv.getText().toString().trim());
+                        i.putExtra("username",name.getText().toString());
+                        startActivity(i);
+                    }
+                });
+                myL.addView(tv);
 
             }
         });
 
     }
+
 
 
 }

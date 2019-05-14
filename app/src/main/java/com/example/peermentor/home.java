@@ -59,7 +59,7 @@ public class home extends AppCompatActivity {
 
         Ion.with(this)
                 // 192.168.56.1
-                .load("http://10.20.216.89:3000/login")
+                .load("http://192.168.1.105:3000/login")
                 .setJsonObjectBody(json)
                 .asString()
                 .setCallback(new FutureCallback<String>() {

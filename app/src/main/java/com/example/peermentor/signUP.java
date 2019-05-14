@@ -38,14 +38,13 @@ public class signUP extends AppCompatActivity {
 
     }
 
-    public void registerUser(String usermane, String name, String password) {
+    public void registerUser(String username, String name, String password) {
         JsonObject json = new JsonObject();
-        json.addProperty("username",usermane);
+        json.addProperty("username",username);
         json.addProperty("name", name);
         json.addProperty("password", password);
         Ion.with(this)
-                // 192.168.56.1
-                .load("http://10.20.216.89:3000/register")
+                .load("http://192.168.1.105:3000/register")
                 .setJsonObjectBody(json)
                 .asString()
                 .setCallback(new FutureCallback<String>() {
