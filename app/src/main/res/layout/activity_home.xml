@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login"
+    android:background="@android:color/white"
     android:visibility="visible"
     tools:context=".home">
 
@@ -17,8 +17,8 @@
         android:fontFamily="@font/coming_soon"
         android:hint="UserName"
         android:inputType="textPersonName"
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
@@ -32,8 +32,8 @@
         android:fontFamily="@font/coming_soon"
         android:hint="Password"
         android:inputType="textPassword"
-        android:textColor="@android:color/white"
-        android:textColorHint="@android:color/white"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginUserName" />
@@ -55,10 +55,10 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="223dp"
-        android:layout_height="216dp"
+        android:layout_width="319dp"
+        android:layout_height="192dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/gg"
+        android:background="@drawable/logodefault"
         android:scaleType="centerInside"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"

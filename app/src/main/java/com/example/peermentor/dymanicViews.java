@@ -30,22 +30,23 @@ Context cnt;
         });
         textView.setTextColor(Color.rgb(0,0,0));
         textView.setText(text);
+
         textView.setMaxEms(8);
 
         switch (type)
         {
             case 1:
-                textView.setBackgroundResource(R.drawable.tutor);
+                textView.setBackgroundResource(R.drawable.t);
 
                 break;
             case 2:
-                textView.setBackgroundResource(R.drawable.carpooling);
+                textView.setBackgroundResource(R.drawable.c);
                 break;
             case 3:
-                textView.setBackgroundResource(R.drawable.stationary);
+                textView.setBackgroundResource(R.drawable.s);
                 break;
                 default:
-                    textView.setBackgroundResource(R.drawable.tutor);
+                    textView.setBackgroundResource(R.drawable.t);
         }
         return textView;
     }

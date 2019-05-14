@@ -20,6 +20,8 @@ import android.widget.Toast;
 import com.github.nkzawa.emitter.Emitter;
 import com.github.nkzawa.socketio.client.IO;
 import com.github.nkzawa.socketio.client.Socket;
+import com.google.gson.JsonObject;
+
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,12 +43,22 @@ public class MainActivity extends AppCompatActivity  {
     public String Nickname;
     public  Button logout;
     public  TextView t;
+    TextView dumy ;
+
     @Override
     protected
     void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Intent i = getIntent();
+        Button clear = findViewById(R.id.clear);
+        dumy = findViewById(R.id.ttt);
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dumy.setText("");
+            }
+        });
         Nickname=i.getStringExtra("username") ;
         messagetxt =  findViewById(R.id.message) ;
         send = findViewById(R.id.send);
@@ -66,7 +78,7 @@ public class MainActivity extends AppCompatActivity  {
             e.printStackTrace();
 
         }
-        socket.emit("send message",i.getStringExtra("String"));
+
         socket.on("userjoinedthechat", new Emitter.Listener() {
             @Override
             public
@@ -90,7 +102,10 @@ public class MainActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
                         if(!messagetxt.getText().toString().isEmpty()){
-                            socket.emit("send message",Nickname+':'+messagetxt.getText().toString());
+                            JsonObject jsonObject= new JsonObject();
+                            jsonObject.addProperty("username",Nickname);
+                            jsonObject.addProperty("message",messagetxt.getText().toString().trim());
+                            socket.emit("send message",jsonObject);
                             messagetxt.setText("");
                         }
                     }
@@ -105,26 +120,10 @@ public class MainActivity extends AppCompatActivity  {
                         try {
                             t = findViewById(R.id.ttt);
                             String msg = data.getString("msg");
-                            //msg = msg.substring(0,msg.length()-9);
+
                             t.append(msg+'\n');
                             String nickname = data.getString("user");
                             String message = data.getString("msg");
-                            Message m = new Message(nickname,message);
-
-                            //add the message to the messageList
-
-                            MessageList.add(m);
-
-                            // add the new updated list to the adapter
-                            chatBoxAdapter = new ChatBoxAdapter(MessageList);
-
-                            // notify the adapter to update the recycler view
-
-                            chatBoxAdapter.notifyDataSetChanged();
-
-                            //set the adapter for the recycler view
-
-                            myRecylerView.setAdapter(chatBoxAdapter);
 
 
                         } catch (JSONException e) {
@@ -144,6 +143,7 @@ public class MainActivity extends AppCompatActivity  {
                 startActivity(intent);
             }
         });
+
     }
 
 }

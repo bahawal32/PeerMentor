@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/allbroadcast"
+    android:background="@drawable/backchat"
     tools:context=".AllBroadcast">
 
     <LinearLayout
@@ -76,7 +76,7 @@
             android:layout_height="78dp"
             android:layout_marginLeft="30dp"
             android:fontFamily="@font/coming_soon"
-            android:hint="Type ypur Request here :) and get help"
+            android:hint="Type your Request here and get help :)"
             android:textColorHint="@color/colorAccent" />
 
         <ScrollView

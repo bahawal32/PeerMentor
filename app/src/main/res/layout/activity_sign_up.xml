@@ -4,19 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/login"
+    android:background="@android:color/white"
     tools:context=".signUP">
 
     <EditText
         android:id="@+id/loginPassword"
         android:layout_width="341dp"
         android:layout_height="55dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:fontFamily="@font/coming_soon"
         android:hint="password"
         android:inputType="textPassword"
-        android:textColorHint="@android:color/white"
+        android:textColorHint="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.528"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,12 +26,12 @@
         android:id="@+id/SignUserName"
         android:layout_width="342dp"
         android:layout_height="49dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="36dp"
         android:ems="10"
         android:fontFamily="@font/coming_soon"
         android:hint="username"
         android:inputType="textPersonName"
-        android:textColorHint="@android:color/white"
+        android:textColorHint="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.536"
         app:layout_constraintStart_toStartOf="parent"
@@ -41,11 +41,11 @@
         android:id="@+id/SignmeUp"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="44dp"
         android:fontFamily="@font/coming_soon"
         android:text="sign me up"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginPassword" />
 
@@ -53,25 +53,25 @@
         android:id="@+id/SignName"
         android:layout_width="337dp"
         android:layout_height="52dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="28dp"
         android:ems="10"
         android:fontFamily="@font/coming_soon"
         android:hint="Name"
         android:inputType="textPersonName"
-        android:textColorHint="@android:color/white"
+        android:textColorHint="@android:color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="235dp"
+        android:layout_width="355dp"
+        android:layout_height="193dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/logodefault" />
 
 </android.support.constraint.ConstraintLayout>
