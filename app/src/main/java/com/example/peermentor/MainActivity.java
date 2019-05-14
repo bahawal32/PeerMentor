@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity  {
         myRecylerView.setLayoutManager(mLayoutManager);
         myRecylerView.setItemAnimator(new DefaultItemAnimator());
         try {
-            socket = IO.socket("http://192.168.1.105:3000");
+            socket = IO.socket("http://10.20.216.89:3000");
             socket.connect();
             socket.emit("join",Nickname);
         } catch (URISyntaxException e) {
@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity  {
                     @Override
                     public
                     void run() {
-                        String data = (String) args[00];
+                        String data = (String) args[0];
                         // get the extra data from the fired event and display a toast
                         Toast.makeText(MainActivity.this, data, Toast.LENGTH_SHORT).show();
 

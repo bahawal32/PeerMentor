@@ -15,7 +15,8 @@ import com.koushikdutta.async.future.FutureCallback;
 import com.koushikdutta.ion.Ion;
 
 public class home extends AppCompatActivity {
-
+     EditText loginusername;
+    EditText loginpassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,19 +24,19 @@ public class home extends AppCompatActivity {
         Button login = findViewById(R.id.login);
         Button sign_up = findViewById(R.id.signup);
 
-        final EditText loginusername  = findViewById(R.id.loginUserName);
-        final EditText loginpassword  = findViewById(R.id.loginPassword);
+        loginusername  = findViewById(R.id.loginUserName);
+        loginpassword  = findViewById(R.id.loginPassword);
 
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //loginUser(loginusername.getText().toString(),loginpassword.getText().toString());
-                Intent intent = new Intent(home.this, MainActivity.class);
-                String uname  = loginusername.getText().toString();
+                loginUser(loginusername.getText().toString(),loginpassword.getText().toString());
+                //Intent intent = new Intent(home.this, AllBroadcast.class);
+                /*String uname  = loginusername.getText().toString();
                 intent.putExtra("username",uname);
                 Toast.makeText(home.this,"Welcome, "+uname,Toast.LENGTH_SHORT).show();
-                startActivity(intent);
+                startActivity(intent);*/
 
             }
         });
@@ -58,7 +59,7 @@ public class home extends AppCompatActivity {
 
         Ion.with(this)
                 // 192.168.56.1
-                .load("http://192.168.56.1:3000/login")
+                .load("http://10.20.216.89:3000/login")
                 .setJsonObjectBody(json)
                 .asString()
                 .setCallback(new FutureCallback<String>() {
@@ -67,8 +68,10 @@ public class home extends AppCompatActivity {
                             String target;
                         if(result.equals("\"Login success\""))
                         {
-                            Toast.makeText(home.this, "Success", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(home.this, AllBroadcast.class);
+                            String uname  = loginusername.getText().toString();
+                            intent.putExtra("username",uname);
+                            Toast.makeText(home.this,"Welcome, "+uname,Toast.LENGTH_SHORT).show();
                             startActivity(intent);
                         }
                         else{

@@ -1,6 +1,7 @@
 package com.example.peermentor;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,14 +23,16 @@ public class AllBroadcast extends AppCompatActivity {
     TextView name ;
     RadioGroup typeofbroadcast;
     RadioButton selected;
+    Intent chat;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        chat = new Intent(AllBroadcast.this, MainActivity.class);
         setContentView(R.layout.activity_all_broadcast);
         myL = findViewById(R.id.UsersBroadcasts);
         name  = findViewById(R.id.UserName);
         name.setText(getIntent().getStringExtra("username"));
+
         AddRequest = findViewById(R.id.AddRequest);
         AddRequest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +52,7 @@ public class AllBroadcast extends AppCompatActivity {
 
                     }
                 });
-                myL.addView(dmy.descriptionTextView(getApplicationContext()," "+(i++),type));
+                myL.addView(dmy.descriptionTextView(getApplicationContext()," "+(i++),type,getIntent()));
 
             }
         });
