@@ -127,7 +127,7 @@ public class AllBroadcast extends AppCompatActivity {
                                 @Override
                                 public void onClick(View v) {
                                     Intent i =  new Intent(AllBroadcast.this, MainActivity.class);
-                                    i.putExtra("username",broadcast_user);
+                                    i.putExtra("username",name.getText().toString().trim());
                                     startActivity(i);
                                 }
                             });
